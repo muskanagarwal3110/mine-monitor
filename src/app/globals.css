@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent:       #07FFEB;
+  --accent-glow:  rgba(7, 255, 235, 0.35);
+  --danger:       #ff2a2a;
+  --danger-glow:  rgba(255, 42, 42, 0.6);
+  --safe:         #00e676;
+  --warn:         #ffca28;
+  --bg:           #03060a;
+  --surface:      rgba(14, 30, 44, 0.55);
+  --border:       rgba(7, 255, 235, 0.12);
+  --text-sub:     #8ab4f8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(7, 255, 235, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 255, 235, 0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── Scan line overlay ────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── Glassmorphism card ───────────────────────────────────────────────── */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* ─── Accent glow text ─────────────────────────────────────────────────── */
+.text-glow {
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ─── Danger pulse border ──────────────────────────────────────────────── */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(255, 42, 42, 0.4); }
+  50%       { border-color: rgba(255, 42, 42, 0.9); }
+}
+
+.border-danger-pulse {
+  animation: border-pulse 1s ease-in-out infinite;
+}
+
+/* ─── Number flip ──────────────────────────────────────────────────────── */
+@keyframes number-flip {
+  0%   { transform: translateY(-4px); opacity: 0.6; }
+  100% { transform: translateY(0);    opacity: 1;   }
+}
+
+.number-flip {
+  animation: number-flip 0.2s ease-out;
+}
