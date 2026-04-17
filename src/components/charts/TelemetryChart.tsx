@@ -201,7 +201,7 @@ export default function TelemetryChart({
           className="font-display text-xs font-bold tracking-[0.15em]"
           style={{ color: sensor.color }}
         >
-          {sensor.desc} / {sensor.id}
+          {sensor.desc}
         </span>
         <span className="text-[10px] font-mono text-white/20">
           0 – {sensor.maxPPM} PPM

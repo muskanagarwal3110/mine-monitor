@@ -45,14 +45,14 @@ export default function GasCard({
         )}
       >
         <p
-          className="font-display text-xs tracking-[0.18em] font-bold"
+          className="font-display text-s tracking-[0.18em] font-bold"
           style={{ color: sensor.color }}
         >
           {sensor.desc}
         </p>
-        <p className="text-[10px] text-[var(--text-sub)] font-mono mt-0.5">
+        {/* <p className="text-[10px] text-[var(--text-sub)] font-mono mt-0.5">
           {sensor.id}
-        </p>
+        </p> */}
       </div>
 
       {/* Value */}
@@ -83,7 +83,7 @@ export default function GasCard({
         </div>
         <div
           className={cn(
-            "text-[9px] font-mono mt-1 tracking-wider",
+            "text-[12px] font-mono mt-1 tracking-wider",
             isDanger ? "text-[var(--danger)]" : isWarn ? "text-[var(--warn)]" : "text-white/20"
           )}
         >
